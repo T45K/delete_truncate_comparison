@@ -9,7 +9,7 @@ fun main() {
         connection.createStatement().use { statement ->
             statement.execute("set foreign_key_checks = 0")
             (1..50).forEach {
-                statement.execute("drop table test_$it")
+                statement.execute("drop table if exists test_$it")
             }
             statement.execute("set foreign_key_checks = 1")
 
